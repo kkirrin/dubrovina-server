@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "verhnee_menyus",
+  "info": {
+    "singularName": "top-menu",
+    "pluralName": "verhnee-menyus",
+    "displayName": "Верхнее меню",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "links": {
+      "displayName": "link",
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.link"
+    }
+  }
+}

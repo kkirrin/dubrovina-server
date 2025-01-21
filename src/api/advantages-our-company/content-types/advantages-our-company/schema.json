@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "advantages_our_companies",
+  "info": {
+    "singularName": "advantages-our-company",
+    "pluralName": "advantages-our-companies",
+    "displayName": "Advantages our company"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Addvantages": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
+    }
+  }
+}
