@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_speczializacziya_speczializacziya_osobennosti",
+  "info": {
+    "displayName": "специализация особенности",
+    "icon": "chartCircle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "speczializacziya_feauture_single": {
+      "displayName": " Специализация особенности конкретная",
+      "type": "component",
+      "repeatable": true,
+      "component": "speczializacziya.speczializacziya-osobennosti-konkretnaya"
+    }
+  }
+}

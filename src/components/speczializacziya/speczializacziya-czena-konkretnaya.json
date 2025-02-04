@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_speczializacziya_speczializacziya_czena_konkretnaya",
+  "info": {
+    "displayName": "специализация цена конкретная",
+    "icon": "folder"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "string"
+    }
+  }
+}

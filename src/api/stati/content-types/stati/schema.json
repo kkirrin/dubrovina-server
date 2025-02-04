@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statis",
+  "info": {
+    "singularName": "stati",
+    "pluralName": "statis",
+    "displayName": "Статьи",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "category_slug": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "title_slug": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "reading_time": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "image_poster": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

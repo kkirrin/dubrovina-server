@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_speczializacziya_speczializacziya_kategoriya",
+  "info": {
+    "displayName": "Специализация Категория",
+    "icon": "cup"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "speczializacziya_sub": {
+      "type": "component",
+      "repeatable": true,
+      "component": "speczializacziya.speczializacziya-podkategoriya"
+    }
+  }
+}

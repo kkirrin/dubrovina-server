@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zayavki_s_sajtas",
+  "info": {
+    "singularName": "zayavki-s-sajta",
+    "pluralName": "zayavki-s-sajtas",
+    "displayName": "Заявки с сайта"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

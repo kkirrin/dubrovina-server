@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "speczializaczii_podkategoriyas",
+  "info": {
+    "singularName": "speczializaczii-podkategoriya",
+    "pluralName": "speczializaczii-podkategoriyas",
+    "displayName": "Специализации - подкатегория",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "speczializacziya_cat": {
+      "displayName": "Специализация Категория",
+      "type": "component",
+      "repeatable": true,
+      "component": "speczializacziya.speczializacziya-kategoriya"
+    }
+  }
+}

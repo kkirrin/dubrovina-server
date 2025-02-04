@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "sekcziya_missiyas",
+  "info": {
+    "singularName": "sekcziya-missiya",
+    "pluralName": "sekcziya-missiyas",
+    "displayName": "Секция \"Миссия и Ценности\""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "title_2": {
+      "type": "string"
+    },
+    "subtitle_2": {
+      "type": "text"
+    }
+  }
+}

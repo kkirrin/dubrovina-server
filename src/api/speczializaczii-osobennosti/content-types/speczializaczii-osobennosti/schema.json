@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "speczializaczii_osobennostis",
+  "info": {
+    "singularName": "speczializaczii-osobennosti",
+    "pluralName": "speczializaczii-osobennostis",
+    "displayName": "Специализации - особенности",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "speczializacziya_feauture": {
+      "displayName": "специализация особенности",
+      "type": "component",
+      "repeatable": true,
+      "component": "speczializacziya.speczializacziya-osobennosti"
+    }
+  }
+}

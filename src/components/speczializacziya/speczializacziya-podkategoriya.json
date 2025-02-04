@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_speczializacziya_speczializacziya_podkategoriya",
+  "info": {
+    "displayName": "специализация - подкатегория",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "speczializacziya_sub_page": {
+      "type": "component",
+      "repeatable": false,
+      "component": "speczializacziya.informacziya-po-stranichke-kartochka-speczilizaczii"
+    }
+  }
+}

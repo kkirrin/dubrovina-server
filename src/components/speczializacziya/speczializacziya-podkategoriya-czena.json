@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_speczializacziya_speczializacziya_podkategoriya_czena",
+  "info": {
+    "displayName": "специализация подкатегория  цена",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "speczializacziya_sub_price_item": {
+      "displayName": "специализация цена конкретная",
+      "type": "component",
+      "repeatable": true,
+      "component": "speczializacziya.speczializacziya-czena-konkretnaya"
+    }
+  }
+}

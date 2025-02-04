@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "speczializaczii_czenas",
+  "info": {
+    "singularName": "speczializaczii-czena",
+    "pluralName": "speczializaczii-czenas",
+    "displayName": "Специализации - цена",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "speczializacziya_sub_price": {
+      "displayName": "специализация подкатегория  цена",
+      "type": "component",
+      "repeatable": true,
+      "component": "speczializacziya.speczializacziya-podkategoriya-czena"
+    }
+  }
+}

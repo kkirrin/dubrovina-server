@@ -407,110 +407,6 @@ export interface ApiAdvantagesOurCompanyAdvantagesOurCompany
   };
 }
 
-export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'articles';
-  info: {
-    description: 'Create your blog content';
-    displayName: 'Article';
-    pluralName: 'articles';
-    singularName: 'article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
-    >;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 80;
-      }>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article.article'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
-  collectionName: 'authors';
-  info: {
-    description: 'Create authors for your content';
-    displayName: 'Author';
-    pluralName: 'authors';
-    singularName: 'author';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::author.author'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
-  collectionName: 'categories';
-  info: {
-    description: 'Organize your content into categories';
-    displayName: 'Category';
-    pluralName: 'categories';
-    singularName: 'category';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -543,12 +439,202 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHeroHero extends Struct.SingleTypeSchema {
+  collectionName: 'heroes';
+  info: {
+    displayName: 'hero';
+    pluralName: 'heroes';
+    singularName: 'hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imageLarge: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    imageSmall: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKontaktyKontakty extends Struct.SingleTypeSchema {
+  collectionName: 'kontakties';
+  info: {
+    displayName: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B';
+    pluralName: 'kontakties';
+    singularName: 'kontakty';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contacts: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kontakty.kontakty'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNashiRabotyNashiRaboty extends Struct.CollectionTypeSchema {
+  collectionName: 'nashi_raboties';
+  info: {
+    displayName: '\u041D\u0430\u0448\u0438 \u0440\u0430\u0431\u043E\u0442\u044B';
+    pluralName: 'nashi-raboties';
+    singularName: 'nashi-raboty';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cases: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nashi-raboty.nashi-raboty'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSekcziyaKomandaSekcziyaKomanda
+  extends Struct.SingleTypeSchema {
+  collectionName: 'sekcziya_komandas';
+  info: {
+    displayName: '\u0421\u0435\u043A\u0446\u0438\u044F "\u041A\u043E\u043C\u0430\u043D\u0434\u0430"';
+    pluralName: 'sekcziya-komandas';
+    singularName: 'sekcziya-komanda';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sekcziya-komanda.sekcziya-komanda'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSekcziyaMissiyaSekcziyaMissiya
+  extends Struct.SingleTypeSchema {
+  collectionName: 'sekcziya_missiyas';
+  info: {
+    displayName: '\u0421\u0435\u043A\u0446\u0438\u044F "\u041C\u0438\u0441\u0441\u0438\u044F \u0438 \u0426\u0435\u043D\u043D\u043E\u0441\u0442\u0438"';
+    pluralName: 'sekcziya-missiyas';
+    singularName: 'sekcziya-missiya';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sekcziya-missiya.sekcziya-missiya'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    subtitle_2: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    title_2: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSekcziyaOsnovatelSekcziyaOsnovatel
+  extends Struct.SingleTypeSchema {
+  collectionName: 'sekcziya_osnovatels';
+  info: {
+    displayName: '\u0421\u0435\u043A\u0446\u0438\u044F "\u041E\u0441\u043D\u043E\u0432\u0430\u0442\u0435\u043B\u044C"';
+    pluralName: 'sekcziya-osnovatels';
+    singularName: 'sekcziya-osnovatel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sekcziya-osnovatel.sekcziya-osnovatel'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSpeczialistySpeczialisty
   extends Struct.CollectionTypeSchema {
   collectionName: 'speczialisties';
   info: {
     description: '';
-    displayName: '\u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u044B';
+    displayName: '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u044B';
     pluralName: 'speczialisties';
     singularName: 'speczialisty';
   };
@@ -561,10 +647,22 @@ export interface ApiSpeczialistySpeczialisty
     };
   };
   attributes: {
+    advanced_training: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    big_img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    desc: Schema.Attribute.String &
+    education: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -581,6 +679,18 @@ export interface ApiSpeczialistySpeczialisty
       'oneToMany',
       'api::speczialisty.speczialisty'
     >;
+    meta_descriptions: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    meta_title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     name: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -588,6 +698,197 @@ export interface ApiSpeczialistySpeczialisty
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    sertificates: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    specialization: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    specialty: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpeczializacziiCzenaSpeczializacziiCzena
+  extends Struct.SingleTypeSchema {
+  collectionName: 'speczializaczii_czenas';
+  info: {
+    description: '';
+    displayName: '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438 - \u0446\u0435\u043D\u0430';
+    pluralName: 'speczializaczii-czenas';
+    singularName: 'speczializaczii-czena';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::speczializaczii-czena.speczializaczii-czena'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    speczializacziya_sub_price: Schema.Attribute.Component<
+      'speczializacziya.speczializacziya-podkategoriya-czena',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpeczializacziiOsobennostiSpeczializacziiOsobennosti
+  extends Struct.SingleTypeSchema {
+  collectionName: 'speczializaczii_osobennostis';
+  info: {
+    description: '';
+    displayName: '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438 - \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u0438';
+    pluralName: 'speczializaczii-osobennostis';
+    singularName: 'speczializaczii-osobennosti';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::speczializaczii-osobennosti.speczializaczii-osobennosti'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    speczializacziya_feauture: Schema.Attribute.Component<
+      'speczializacziya.speczializacziya-osobennosti',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpeczializacziiPodkategoriyaSpeczializacziiPodkategoriya
+  extends Struct.SingleTypeSchema {
+  collectionName: 'speczializaczii_podkategoriyas';
+  info: {
+    description: '';
+    displayName: '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438 - \u043F\u043E\u0434\u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u044F';
+    pluralName: 'speczializaczii-podkategoriyas';
+    singularName: 'speczializaczii-podkategoriya';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::speczializaczii-podkategoriya.speczializaczii-podkategoriya'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    speczializacziya_cat: Schema.Attribute.Component<
+      'speczializacziya.speczializacziya-kategoriya',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpeczializacziiSpeczializaczii
+  extends Struct.SingleTypeSchema {
+  collectionName: 'speczializacziis';
+  info: {
+    description: '';
+    displayName: '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438';
+    pluralName: 'speczializacziis';
+    singularName: 'speczializaczii';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::speczializaczii.speczializaczii'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    speczializaczii: Schema.Attribute.Component<
+      'speczializacziya.speczializacziya',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStatiStati extends Struct.CollectionTypeSchema {
+  collectionName: 'statis';
+  info: {
+    description: '';
+    displayName: '\u0421\u0442\u0430\u0442\u044C\u0438';
+    pluralName: 'statis';
+    singularName: 'stati';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    category_slug: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image_poster: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::stati.stati'> &
+      Schema.Attribute.Private;
+    meta_description: Schema.Attribute.Text;
+    meta_title: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    reading_time: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    title_slug: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -623,13 +924,13 @@ export interface ApiStraniczaOKlinikeStraniczaOKlinike
   };
 }
 
-export interface ApiTopMenuTopMenu extends Struct.CollectionTypeSchema {
-  collectionName: 'verhnee_menyus';
+export interface ApiZayavkiSSajtaZayavkiSSajta
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'zayavki_s_sajtas';
   info: {
-    description: '';
-    displayName: '\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043C\u0435\u043D\u044E';
-    pluralName: 'verhnee-menyus';
-    singularName: 'top-menu';
+    displayName: '\u0417\u0430\u044F\u0432\u043A\u0438 \u0441 \u0441\u0430\u0439\u0442\u0430';
+    pluralName: 'zayavki-s-sajtas';
+    singularName: 'zayavki-s-sajta';
   };
   options: {
     draftAndPublish: true;
@@ -638,14 +939,13 @@ export interface ApiTopMenuTopMenu extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String;
-    links: Schema.Attribute.Component<'menu.link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::top-menu.top-menu'
+      'api::zayavki-s-sajta.zayavki-s-sajta'
     > &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1163,13 +1463,21 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::advantages-our-company.advantages-our-company': ApiAdvantagesOurCompanyAdvantagesOurCompany;
-      'api::article.article': ApiArticleArticle;
-      'api::author.author': ApiAuthorAuthor;
-      'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::hero.hero': ApiHeroHero;
+      'api::kontakty.kontakty': ApiKontaktyKontakty;
+      'api::nashi-raboty.nashi-raboty': ApiNashiRabotyNashiRaboty;
+      'api::sekcziya-komanda.sekcziya-komanda': ApiSekcziyaKomandaSekcziyaKomanda;
+      'api::sekcziya-missiya.sekcziya-missiya': ApiSekcziyaMissiyaSekcziyaMissiya;
+      'api::sekcziya-osnovatel.sekcziya-osnovatel': ApiSekcziyaOsnovatelSekcziyaOsnovatel;
       'api::speczialisty.speczialisty': ApiSpeczialistySpeczialisty;
+      'api::speczializaczii-czena.speczializaczii-czena': ApiSpeczializacziiCzenaSpeczializacziiCzena;
+      'api::speczializaczii-osobennosti.speczializaczii-osobennosti': ApiSpeczializacziiOsobennostiSpeczializacziiOsobennosti;
+      'api::speczializaczii-podkategoriya.speczializaczii-podkategoriya': ApiSpeczializacziiPodkategoriyaSpeczializacziiPodkategoriya;
+      'api::speczializaczii.speczializaczii': ApiSpeczializacziiSpeczializaczii;
+      'api::stati.stati': ApiStatiStati;
       'api::stranicza-o-klinike.stranicza-o-klinike': ApiStraniczaOKlinikeStraniczaOKlinike;
-      'api::top-menu.top-menu': ApiTopMenuTopMenu;
+      'api::zayavki-s-sajta.zayavki-s-sajta': ApiZayavkiSSajtaZayavkiSSajta;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

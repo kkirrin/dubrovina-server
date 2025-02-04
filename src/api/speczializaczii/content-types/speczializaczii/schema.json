@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "speczializacziis",
+  "info": {
+    "singularName": "speczializaczii",
+    "pluralName": "speczializacziis",
+    "displayName": "Специализации",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "speczializaczii": {
+      "type": "component",
+      "repeatable": true,
+      "component": "speczializacziya.speczializacziya"
+    }
+  }
+}

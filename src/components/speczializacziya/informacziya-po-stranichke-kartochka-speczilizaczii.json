@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_speczializacziya_informacziya_po_stranichke_kartochka_speczilizaczii",
+  "info": {
+    "displayName": "информация по страничке Карточка специлизации",
+    "icon": "cup",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "string"
+    },
+    "title_page": {
+      "type": "string"
+    },
+    "desc_page": {
+      "type": "text"
+    },
+    "about_the_disease": {
+      "type": "blocks"
+    },
+    "how_is_the_treatment_going": {
+      "type": "blocks"
+    }
+  }
+}

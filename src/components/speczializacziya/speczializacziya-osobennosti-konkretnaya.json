@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_speczializacziya_speczializacziya_osobennosti_konkretnaya",
+  "info": {
+    "displayName": " Специализация особенности конкретная",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    }
+  }
+}
